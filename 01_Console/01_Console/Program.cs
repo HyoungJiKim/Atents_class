@@ -10,6 +10,50 @@ namespace _01_Console
     {
         static void Main(string[] args)
         {
+            int sumResult = Sum(10, 20);    //break point 단축기F9
+            Console.WriteLine($"SumResult : {sumResult}");
+
+            string name = "너굴맨";
+            int level = 2;
+            int hp = 10;
+            int maxHP = 20;
+            float exp = 0.1f;
+            float maxExp = 1.0f;
+
+            Print();
+            PrintCharacter(name, level, hp, maxHP, exp, maxExp);
+
+            Console.ReadKey();                  //키 입력 대기
+        }
+        //Main 함수의 끝
+
+        //함수의 구성요소
+        //이름 : 함수들을 구분하기 위한 이름 (Sum)
+        //리턴타입 : 함수의 실행 결과로 돌려주는 데이터의 타입 (int, 함수의 이름 앞에 표시된다.)
+        //파라메터(매개변수) : 함수가 실행될 때 외부에서 받는 값 ((int a, int b) 두개의 파라메터가 있다. 함수 이름 뒤
+        //함수바디 : 함수가 호출될 때 실행될 코드
+
+        //함수의 이름, 리턴타입, 파라메터를 합쳐서 함수 프로토타입, 함수의 주민등록번호.
+        //절대로 하나의 프로그램 안에서 겹치지 않음
+        
+        private static void PrintCharacter(string name, int level, int hp, int maxHP, float exp, float maxExp)
+        {
+            //실습 : 파라메터로 받은 데이터를 적당한 양식으로 출력
+            Console.WriteLine($"이름 : {name}\n레벨 : {level}\nHP : {hp}\nmaxHp : {maxHP}\nexp:{exp}\nmaxExp : {maxExp}");
+        }
+        static int Sum(int a, int b)
+        {
+            int result = a + b;
+            return result;
+        }
+
+        static void Print()    //리턴해주는 값이 없고, 파라메터도 없는 경우
+        {
+            Console.WriteLine("Print");
+        }
+
+        void Test()
+        {
             Console.WriteLine("Hello World!");  //Hello World 를 출력하는 코드
             Console.WriteLine("22.08.16 김형지");//출력
             string str = Console.ReadLine();     //키보드 입력을 받아서 str이라는 string 변수에 저장한다.
@@ -20,7 +64,7 @@ namespace _01_Console
             //float : 플로트. 실수. 소수점 있는 숫자. 32bit
             //string : 스트링. 문자열. 글자들을 저장. 
             //bool : 불 or 불리언. true/false를 저장. 
-           
+
             int a = 10; //a라는 인티저 변수에 10이라는 데이터를 넣는다.
             long b = 5000000000; //50억은 int에 넣을 수 없다. => int는 32비트이고 32비트로 표현가능한 숫자의 갯수는 2^32
             int c = -100;
@@ -120,7 +164,7 @@ namespace _01_Console
 
             Console.WriteLine("경험치를 추가합니다.");
             Console.Write("추가할 경험치 : ");
-            string tempexp2=Console.ReadLine();
+            string tempexp2 = Console.ReadLine();
             float exp2;
             float.TryParse(tempexp2, out exp2);
             //실습 : exp의 값과 추가로 입력받은 경험치의 합이 1 이상이면 "레벨업"이라고 출력하고 1미만이면 합계를 출력
@@ -140,8 +184,8 @@ namespace _01_Console
                 //level += 2;   //level에 2를 더해서 레벨에 넣어라
             }
 
-            for(int i=0; i < 3; i++)    //i는 0에서 시작해서 3보다 작으면 계속 {}사이의 코드를 실행한다
-                                        //i는 {} 사이의 코드를 실행할 때마다 1씩 증가한다.
+            for (int i = 0; i < 3; i++)    //i는 0에서 시작해서 3보다 작으면 계속 {}사이의 코드를 실행한다
+                                           //i는 {} 사이의 코드를 실행할 때마다 1씩 증가한다.
             {
                 Console.WriteLine($"현재 HP : {hp}");
                 hp += 10;
@@ -176,7 +220,8 @@ namespace _01_Console
             //while이 끝났다는 이야기는 exp가 1 이상이라는 의미
             Console.WriteLine("레벨업");
 
-            Console.ReadKey();                  //키 입력 대기
+
+
         }
     }
 }
