@@ -52,9 +52,21 @@ namespace _01_Console
             string name = "너굴맨";
 
             //너굴맨의 레벨은 1이고 hp는 10이고 exp는 0.9다
-            string str5 = $"너굴맨의 레벨은 {level}이고 hp는 {hp}이고 exp는 {exp}다";
+            string str5 = $"{name}의 레벨은 {level}이고 hp는 {hp}이고 exp는 {exp}다";
             Console.WriteLine(str5);
 
+            Console.Write("이름을 입력하세요 : ");
+            name = Console.ReadLine();
+            Console.Write($"{name}의 레벨을 입력하세요 : ");
+            string temp = Console.ReadLine();
+            //level = int.Parse(temp);//문자열을 인티져로 변경해주는 코드(숫자로 변경 가능할 때만). 간단하지만 위험
+            //level = Convert.ToInt32(temp);//string을 int로 변경해주는 코드(숫자로 변경 불가능하면 0으로). 더 세세하게 변경가능
+            int.TryParse(temp, out level);//string을 int로 변경해주는 코드(숫자로 변경 불가능하면 0으로)
+            Console.WriteLine($"이름 : {name}\n레벨 : {level}\nHP : {hp}\nexp:{exp}");
+
+            exp = 0.959595f;
+            //너굴맨의 레벨은 1이고 HP는 10이고 exp는 90%다.
+            Console.WriteLine($"{name}의 레벨은 {level}이고 HP는 {hp}이고 exp는 {exp * 100:F3}%다.");
             Console.WriteLine(str);
             Console.ReadKey();                  //키 입력 대기
         }
