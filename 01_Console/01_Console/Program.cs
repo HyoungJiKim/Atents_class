@@ -68,6 +68,114 @@ namespace _01_Console
             //너굴맨의 레벨은 1이고 HP는 10이고 exp는 90%다.
             Console.WriteLine($"{name}의 레벨은 {level}이고 HP는 {hp}이고 exp는 {exp * 100:F3}%다.");
             Console.WriteLine(str);
+
+            //실습 : 이름, 레벨, hp, 경험치를 각각 입력 받고 출력하는 코드 만들기
+            Console.Write("이름을 입력하세요 : ");
+            name = Console.ReadLine();
+
+            Console.Write($"{name}의 레벨을 입력하세요 : ");
+            string tempLv = Console.ReadLine();
+            int.TryParse(tempLv, out level);
+
+            Console.Write($"{name}의 HP를 입력하세요 : ");
+            string tempHp = Console.ReadLine();
+            int.TryParse(tempHp, out hp);
+
+            Console.Write($"{name}의 exp를 입력하세요 : ");
+            string tempexp = Console.ReadLine();
+            float.TryParse(tempexp, out exp);
+
+            str5 = $"{name}의 레벨은 {level}이고 HP는 {hp}이고 exp는 {exp * 100:F3}%다.";
+            Console.WriteLine(str5);
+
+            //변수 끝---------------------------------------------------------------------------
+
+            //제어문(Control statement)
+            //실행되는 코드 라인을 변경할 수 있는 코드
+            if (hp < 3)    //참이라면 중괄호 사이에 코드가 실행된다.
+            {
+                Console.WriteLine("hp가 부족합니다.");    //(hp<3) 참일 때 실행되는 코드
+            }
+            else if (hp < 10)
+            {
+                Console.WriteLine("hp가 적당합니다.");    //(hp<3)는 거짓이고 (hp<10)는 참일 때
+            }
+            else
+            {
+                Console.WriteLine("hp가 충분합니다.");    //(hp<3)와 (hp<10)이 거짓일 때 실행되는 코드
+            }
+
+            switch (hp)
+            {
+                case 0: //hp가 0일 때
+                    Console.WriteLine("HP가 0입니다.");
+                    break;
+                case 5: //hp가 5일 때
+                    Console.WriteLine("HP가 5입니다.");
+                    break;
+                default:    //위에 설정되지 않은 모든 경우
+                    Console.WriteLine("HP가 0과 5가 아닙니다.");
+                    break;
+            }
+
+            Console.WriteLine("경험치를 추가합니다.");
+            Console.Write("추가할 경험치 : ");
+            string tempexp2=Console.ReadLine();
+            float exp2;
+            float.TryParse(tempexp2, out exp2);
+            //실습 : exp의 값과 추가로 입력받은 경험치의 합이 1 이상이면 "레벨업"이라고 출력하고 1미만이면 합계를 출력
+            if (exp + exp2 >= 1.0f)
+            {
+                Console.WriteLine("레벨업");
+            }
+            else
+            {
+                Console.WriteLine($"현재 경험치 : {exp + exp2}");
+            }
+
+            while (level < 3) //소괄호() 안의 조건이 참이면 중괄호{} 사이의 코드를 실행하는 statement
+            {
+                Console.WriteLine($"현재 레벨 : {level}");
+                level++;    //level = level + 1;    level += 1; //셋 다 같은 코드
+                //level += 2;   //level에 2를 더해서 레벨에 넣어라
+            }
+
+            for(int i=0; i < 3; i++)    //i는 0에서 시작해서 3보다 작으면 계속 {}사이의 코드를 실행한다
+                                        //i는 {} 사이의 코드를 실행할 때마다 1씩 증가한다.
+            {
+                Console.WriteLine($"현재 HP : {hp}");
+                hp += 10;
+            }
+            Console.WriteLine($"최종 HP : {hp}");
+
+            do
+            {
+                Console.WriteLine($"현재 레벨 : {level}");
+                level++;
+
+                if (level == 2) //1+i == 2 ......... ==은 양쪽이 같다라는 의미
+                {
+                    break;
+                }
+            }
+            while (level < 10);
+            Console.WriteLine($"최종 Level : {level}");
+
+            //실습 : exp가 1을 넘어 레벨업을 할 때까지 계속 추가 경험치를 입력
+            float exp_test = 0.0f;
+
+            while (exp_test < 1.0f) //exp 값이 1보다 작으면 계속 반복
+            {
+                Console.WriteLine($"경험치를 추가합니다. 현재 경험치 : {exp_test}");
+                Console.Write("추가할 경험치 : ");
+                string temp_exp = Console.ReadLine();   //입력 받기
+                float exp_test2;
+                float.TryParse(temp_exp, out exp_test2);    //입력 받은 strubg을 float로 변경
+                exp_test += exp_test2;  //입력 받은 값을 exp에 추가
+            }
+            //while이 끝났다는 이야기는 exp가 1 이상이라는 의미
+            Console.WriteLine("레벨업");
+
             Console.ReadKey();                  //키 입력 대기
         }
     }
