@@ -8,220 +8,59 @@ namespace _01_Console
 {
     internal class Program
     {
+        //스코프(Scope) : 변수나 함수를 사용할 수 있는 범위. 변수를 선언한 시점에서 해당 변수가 포함된 중괄호가 끝나는 지점까지.
         static void Main(string[] args)
         {
-            int sumResult = Sum(10, 20);    //break point 단축기F9
-            Console.WriteLine($"SumResult : {sumResult}");
+            //int sumResult = Sum(10, 20);    //break point 단축기F9
+            //Console.WriteLine($"SumResult : {sumResult}");
+            //Test_Function();
+            //Test_Gugudan();
+            //Test_Battle();
+            //Test_Human();
 
-            string name = "너굴맨";
-            int level = 2;
-            int hp = 10;
-            int maxHP = 20;
-            float exp = 0.1f;
-            float maxExp = 1.0f;
-
-            Print();
-            PrintCharacter(name, level, hp, maxHP, exp, maxExp);
+            Practice_Battle();
 
             Console.ReadKey();                  //키 입력 대기
+
+
         }
-        //Main 함수의 끝
-
-        //함수의 구성요소
-        //이름 : 함수들을 구분하기 위한 이름 (Sum)
-        //리턴타입 : 함수의 실행 결과로 돌려주는 데이터의 타입 (int, 함수의 이름 앞에 표시된다.)
-        //파라메터(매개변수) : 함수가 실행될 때 외부에서 받는 값 ((int a, int b) 두개의 파라메터가 있다. 함수 이름 뒤
-        //함수바디 : 함수가 호출될 때 실행될 코드
-
-        //함수의 이름, 리턴타입, 파라메터를 합쳐서 함수 프로토타입, 함수의 주민등록번호.
-        //절대로 하나의 프로그램 안에서 겹치지 않음
-        
-        private static void PrintCharacter(string name, int level, int hp, int maxHP, float exp, float maxExp)
+        private static void Practice_Battle()
         {
-            //실습 : 파라메터로 받은 데이터를 적당한 양식으로 출력
-            Console.WriteLine($"이름 : {name}\n레벨 : {level}\nHP : {hp}\nmaxHp : {maxHP}\nexp:{exp}\nmaxExp : {maxExp}");
-        }
-        static int Sum(int a, int b)
-        {
-            int result = a + b;
-            return result;
-        }
-
-        static void Print()    //리턴해주는 값이 없고, 파라메터도 없는 경우
-        {
-            Console.WriteLine("Print");
-        }
-
-        void Test()
-        {
-            Console.WriteLine("Hello World!");  //Hello World 를 출력하는 코드
-            Console.WriteLine("22.08.16 김형지");//출력
-            string str = Console.ReadLine();     //키보드 입력을 받아서 str이라는 string 변수에 저장한다.
-
-            //변수 : 변하는 숫자. 컴퓨터에서 사용할 데이터를 저장할 수 있는 곳.
-            //변수의 종류 : 데이터 타입(Data type)
-            //int  : 인티저. 정수. 소수점 없는 숫자. 32bit
-            //float : 플로트. 실수. 소수점 있는 숫자. 32bit
-            //string : 스트링. 문자열. 글자들을 저장. 
-            //bool : 불 or 불리언. true/false를 저장. 
-
-            int a = 10; //a라는 인티저 변수에 10이라는 데이터를 넣는다.
-            long b = 5000000000; //50억은 int에 넣을 수 없다. => int는 32비트이고 32비트로 표현가능한 숫자의 갯수는 2^32
-            int c = -100;
-            int d = 2000000000;
-            int e = 2000000000;
-            int f = d + e;
-            Console.WriteLine(f);
-
-            //float의 단점 : 태생적으로 오차가 있을 수 밖에 없다.
-            float aa = 0.000123f;
-            float ab = 0.9999999999999f;
-            float ac = 0.0000000000001f;
-            float ad = ab + ac;//결과가 1이 아닐 수도 있다.
-            Console.WriteLine(ad);
-
-            string str1 = "Hello";
-            string str2 = "안녕!";
-            string str3 = $"Hello{a}";//Hello 10
-            Console.WriteLine(str3);
-            string str4 = str1 + str2;//Hello 안녕!
-            Console.WriteLine(str4);
-
-            bool b1 = true;
-            bool b2 = false;
-
-            int level = 1;
-            int hp = 10;
-            float exp = 0.9f;
-            string name = "너굴맨";
-
-            //너굴맨의 레벨은 1이고 hp는 10이고 exp는 0.9다
-            string str5 = $"{name}의 레벨은 {level}이고 hp는 {hp}이고 exp는 {exp}다";
-            Console.WriteLine(str5);
-
-            Console.Write("이름을 입력하세요 : ");
-            name = Console.ReadLine();
-            Console.Write($"{name}의 레벨을 입력하세요 : ");
-            string temp = Console.ReadLine();
-            //level = int.Parse(temp);//문자열을 인티져로 변경해주는 코드(숫자로 변경 가능할 때만). 간단하지만 위험
-            //level = Convert.ToInt32(temp);//string을 int로 변경해주는 코드(숫자로 변경 불가능하면 0으로). 더 세세하게 변경가능
-            int.TryParse(temp, out level);//string을 int로 변경해주는 코드(숫자로 변경 불가능하면 0으로)
-            Console.WriteLine($"이름 : {name}\n레벨 : {level}\nHP : {hp}\nexp:{exp}");
-
-            exp = 0.959595f;
-            //너굴맨의 레벨은 1이고 HP는 10이고 exp는 90%다.
-            Console.WriteLine($"{name}의 레벨은 {level}이고 HP는 {hp}이고 exp는 {exp * 100:F3}%다.");
-            Console.WriteLine(str);
-
-            //실습 : 이름, 레벨, hp, 경험치를 각각 입력 받고 출력하는 코드 만들기
-            Console.Write("이름을 입력하세요 : ");
-            name = Console.ReadLine();
-
-            Console.Write($"{name}의 레벨을 입력하세요 : ");
-            string tempLv = Console.ReadLine();
-            int.TryParse(tempLv, out level);
-
-            Console.Write($"{name}의 HP를 입력하세요 : ");
-            string tempHp = Console.ReadLine();
-            int.TryParse(tempHp, out hp);
-
-            Console.Write($"{name}의 exp를 입력하세요 : ");
-            string tempexp = Console.ReadLine();
-            float.TryParse(tempexp, out exp);
-
-            str5 = $"{name}의 레벨은 {level}이고 HP는 {hp}이고 exp는 {exp * 100:F3}%다.";
-            Console.WriteLine(str5);
-
-            //변수 끝---------------------------------------------------------------------------
-
-            //제어문(Control statement)
-            //실행되는 코드 라인을 변경할 수 있는 코드
-            if (hp < 3)    //참이라면 중괄호 사이에 코드가 실행된다.
-            {
-                Console.WriteLine("hp가 부족합니다.");    //(hp<3) 참일 때 실행되는 코드
-            }
-            else if (hp < 10)
-            {
-                Console.WriteLine("hp가 적당합니다.");    //(hp<3)는 거짓이고 (hp<10)는 참일 때
-            }
-            else
-            {
-                Console.WriteLine("hp가 충분합니다.");    //(hp<3)와 (hp<10)이 거짓일 때 실행되는 코드
-            }
-
-            switch (hp)
-            {
-                case 0: //hp가 0일 때
-                    Console.WriteLine("HP가 0입니다.");
-                    break;
-                case 5: //hp가 5일 때
-                    Console.WriteLine("HP가 5입니다.");
-                    break;
-                default:    //위에 설정되지 않은 모든 경우
-                    Console.WriteLine("HP가 0과 5가 아닙니다.");
-                    break;
-            }
-
-            Console.WriteLine("경험치를 추가합니다.");
-            Console.Write("추가할 경험치 : ");
-            string tempexp2 = Console.ReadLine();
-            float exp2;
-            float.TryParse(tempexp2, out exp2);
-            //실습 : exp의 값과 추가로 입력받은 경험치의 합이 1 이상이면 "레벨업"이라고 출력하고 1미만이면 합계를 출력
-            if (exp + exp2 >= 1.0f)
-            {
-                Console.WriteLine("레벨업");
-            }
-            else
-            {
-                Console.WriteLine($"현재 경험치 : {exp + exp2}");
-            }
-
-            while (level < 3) //소괄호() 안의 조건이 참이면 중괄호{} 사이의 코드를 실행하는 statement
-            {
-                Console.WriteLine($"현재 레벨 : {level}");
-                level++;    //level = level + 1;    level += 1; //셋 다 같은 코드
-                //level += 2;   //level에 2를 더해서 레벨에 넣어라
-            }
-
-            for (int i = 0; i < 3; i++)    //i는 0에서 시작해서 3보다 작으면 계속 {}사이의 코드를 실행한다
-                                           //i는 {} 사이의 코드를 실행할 때마다 1씩 증가한다.
-            {
-                Console.WriteLine($"현재 HP : {hp}");
-                hp += 10;
-            }
-            Console.WriteLine($"최종 HP : {hp}");
+            Human player;
+            string result;
 
             do
             {
-                Console.WriteLine($"현재 레벨 : {level}");
-                level++;
+                Console.Write("당신의 이름을 입력해주세요 : ");
+                string name = Console.ReadLine();
+                player = new Human(name);
+                Console.Write($"이대로 진행하시겠습니까? (Y/N) : ");
+                result = Console.ReadLine();
+            }
+            //while (!(result == "Y" || result == "y" || result == "N" || result == "n"))
+            while (result != "Y" && result != "y" && result != "N" && result != "n");
 
-                if (level == 2) //1+i == 2 ......... ==은 양쪽이 같다라는 의미
+            Orc enemy = new Orc("오크");
+
+            Console.WriteLine("오크가 나타났다.");
+            Console.WriteLine("\n\n------------------전투시작------------------");
+            while (!player.IsDead && !enemy.IsDead)
+            {
+                Console.WriteLine("행동을 입력해주세요.\n1)공격 2)스킬 3)방어");
+                player.select_Action(enemy);
+                player.TestPrintStatus();
+                enemy.TestPrintStatus();
+                if (enemy.IsDead)
                 {
                     break;
                 }
+                enemy.Attack(player);
+                player.TestPrintStatus();
+                enemy.TestPrintStatus();
             }
-            while (level < 10);
-            Console.WriteLine($"최종 Level : {level}");
-
-            //실습 : exp가 1을 넘어 레벨업을 할 때까지 계속 추가 경험치를 입력
-            float exp_test = 0.0f;
-
-            while (exp_test < 1.0f) //exp 값이 1보다 작으면 계속 반복
-            {
-                Console.WriteLine($"경험치를 추가합니다. 현재 경험치 : {exp_test}");
-                Console.Write("추가할 경험치 : ");
-                string temp_exp = Console.ReadLine();   //입력 받기
-                float exp_test2;
-                float.TryParse(temp_exp, out exp_test2);    //입력 받은 strubg을 float로 변경
-                exp_test += exp_test2;  //입력 받은 값을 exp에 추가
-            }
-            //while이 끝났다는 이야기는 exp가 1 이상이라는 의미
-            Console.WriteLine("레벨업");
-
-
 
         }
+
+
     }
 }
